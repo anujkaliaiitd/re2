@@ -139,6 +139,9 @@ if(RE2_BUILD_TESTING)
   endforeach(target)
 endif()
 
+add_executable(regex_analysis akalia/regex_analysis.cc)
+target_link_libraries(regex_analysis re2 ${EXTRA_TARGET_LINK_LIBRARIES})
+
 set(RE2_HEADERS
     re2/filtered_re2.h
     re2/re2.h
