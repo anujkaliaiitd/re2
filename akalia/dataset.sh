@@ -1,30 +1,75 @@
+filenames="emails.txt uris.txt numbers.txt strings.txt dates.txt misc.txt address.txt"
+rm $filenames
+
+# dataset.txt contains the full dataset
 rm dataset.txt
 touch dataset.txt
-rm temp*.txt
 
-# Download the first four pages. The next two pages are spam.
-wget -O temp1.txt 'http://regexlib.com/Search.aspx?k=&c=-1&m=5&ps=100'
-wget -O temp2.txt 'http://regexlib.com/Search.aspx?k=&c=-1&m=5&ps=100&p=2'
-wget -O temp3.txt 'http://regexlib.com/Search.aspx?k=&c=-1&m=5&ps=100&p=3'
-wget -O temp4.txt 'http://regexlib.com/Search.aspx?k=&c=-1&m=5&ps=100&p=4'
+# Emails
+echo "Downloading email regexes"
+wget -O emails.txt "http://regexlib.com/Search.aspx?k=&c=1&m=-1&ps=100"
 
-cat temp1.txt >> dataset.txt
-cat temp2.txt >> dataset.txt
-cat temp3.txt >> dataset.txt
-cat temp4.txt >> dataset.txt
+# URIs
+echo "Downloading URI regexes"
+wget -O uris.txt "http://regexlib.com/Search.aspx?k=&c=2&m=-1&ps=100"
 
-rm temp*.txt
+# Numbers
+echo "Downloading number regexes"
+wget -O numbers.txt "http://regexlib.com/Search.aspx?k=&c=3&m=-1&ps=100"
+wget -O numbers2.txt "http://regexlib.com/Search.aspx?k=&c=3&m=-1&ps=100&p=2"
+cat numbers2.txt >> numbers.txt
+rm numbers2.txt
 
-# Extract only lines with the regexex
-cat dataset.txt | grep "expressionDiv" > temp.txt
-mv temp.txt dataset.txt
+# Strings
+echo "Downloading string regexes"
+wget -O strings.txt "http://regexlib.com/Search.aspx?k=&c=4&m=-1&ps=100"
 
-# Trim leading whitespace
-sed "s/^[ \t ]*//" -i dataset.txt
+# Dates and times
+echo "Downloading date regexes"
+wget -O dates.txt "http://regexlib.com/Search.aspx?k=&c=5&m=-1&ps=100"
+wget -O dates2.txt "http://regexlib.com/Search.aspx?k=&c=5&m=-1&ps=100&p=2"
+cat dates2.txt >> dates.txt
+rm dates2.txt
 
-# Remove the leading HTML tags
-sed -i 's/<td><div class="expressionDiv">//' dataset.txt
+# Misc
+echo "Downloading misc regexes"
+wget -O misc.txt "http://regexlib.com/Search.aspx?k=&c=6&m=-1&ps=100"
+wget -O misc2.txt "http://regexlib.com/Search.aspx?k=&c=6&m=-1&ps=100&p=2"
+cat misc2.txt >> misc.txt
+rm misc2.txt
 
-# Remove the trailing HTML tags
-sed -i 's/<\/div><\/td>//' dataset.txt
+# Address
+echo "Downloading address regexes"
+wget -O address.txt "http://regexlib.com/Search.aspx?k=&c=7&m=-1&ps=100"
+wget -O address2.txt "http://regexlib.com/Search.aspx?k=&c=7&m=-1&ps=100&p=2"
+cat address2.txt >> address.txt
+rm address2.txt
+
+for file in $filenames; do
+  echo "Post-processing $file"
+	# Extract only lines with the regexes
+	cat $file | grep "expressionDiv" > temp.txt
+	mv temp.txt $file
+
+	# Trim leading whitespace
+	sed "s/^[ \t ]*//" -i $file
+
+	# Remove the leading HTML tags
+	sed -i 's/<td><div class="expressionDiv">//' $file
+
+	# Remove the trailing HTML tags
+	sed -i 's/<\/div><\/td>//' $file
+
+  # Some HTML sequences require multiple calls to recode.
+  # Example: &amp;lt -> &lt -> <
+  # Just run it a bunch of times
+  #recode html..ascii $file
+  #recode html..ascii $file
+  #recode html..ascii $file
+  #recode html..ascii $file
+  #recode html..ascii $file
+
+  cat $file >> dataset.txt
+done
+
 
