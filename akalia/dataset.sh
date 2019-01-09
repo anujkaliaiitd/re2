@@ -22,5 +22,9 @@ mv temp.txt dataset.txt
 # Trim leading whitespace
 sed "s/^[ \t ]*//" -i dataset.txt
 
+# Remove the leading HTML tags
+sed -i 's/<td><div class="expressionDiv">//' dataset.txt
 
+# Remove the trailing HTML tags
+sed -i 's/<\/div><\/td>//' dataset.txt
 
