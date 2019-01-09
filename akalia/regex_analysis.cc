@@ -10,7 +10,7 @@
 #include "re2/re2.h"
 #include "re2/regexp.h"
 
-static constexpr bool kVerbose = true;
+static constexpr bool kVerbose = false;
 
 int get_num_states(std::string regex, size_t &dfa_states, size_t &nfa_states) {
   re2::Regexp *re = re2::Regexp::Parse(regex, re2::Regexp::LikePerl, NULL);
@@ -26,7 +26,7 @@ int get_num_states(std::string regex, size_t &dfa_states, size_t &nfa_states) {
 
   dfa_states = prog->BuildEntireDFA(re2::Prog::kFirstMatch, nullptr);
   nfa_states = prog->inst_count(re2::InstOp::kInstByteRange);
-  printf("program =\n%s\n", prog->Dump().c_str());
+  //printf("program =\n%s\n", prog->Dump().c_str());
 
   return 0;
 }
@@ -52,17 +52,25 @@ int main() {
   std::string s;
   s.reserve(1000);  // For performance
 
+  size_t num_total_regexes = 0;
+  size_t num_failed_regexes = 0;
+
   while (true) {
     std::getline(in, s);
     if (s.empty()) break;
 
-    s = s.substr(0, s.length() - 1);
+    num_total_regexes++;
+    s = s.substr(0, s.length() - 1); // Get rid of CR at end
 
     size_t dfa_states = 0, nfa_states = 0;
     int ret = get_num_states(s, dfa_states, nfa_states);
-    if (ret == -1) continue;
+    if (ret == -1) {
+      num_failed_regexes++;
+      continue;
+    }
 
-    printf("dfa %zu, nfa %zu, regex %s\n\n\n", dfa_states, nfa_states,
-           s.c_str());
+    printf("dfa %zu, nfa %zu, length %zu\n", dfa_states, nfa_states, s.length());
   }
+
+  printf("Total regexes %zu, failed %zu\n", num_total_regexes, num_failed_regexes);
 }
