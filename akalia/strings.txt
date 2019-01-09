@@ -1,91 +1,85 @@
-^\d{3}-\d{2}-\d{4}$
+^d{3}-d{2}-d{4}$
 ^[a-zA-Z]$
 foo
-(\w+)\s+\1
-^(\d{4}[- ]){3}\d{4}|\d{16}$
-^((4\d{3})|(5[1-5]\d{2})|(6011))-?\d{4}-?\d{4}-?\d{4}|3[4,7]\d{13}$
-^\s*[a-zA-Z,\s]+\s*$
-^\d{9}[\d|X]$
-^((?:4\d{3})|(?:5[1-5]\d{2})|(?:6011)|(?:3[68]\d{2})|(?:30[012345]\d))[ -]?(\d{4})[ -]?(\d{4})[ -]?(\d{4}|3[4,7]\d{13})$
-&quot;((\\&quot;)|[^&quot;(\\&quot;)])+&quot;
-^([1-zA-Z0-1@.\s]{1,255})$
-^([A-Z]{1}[a-z]{1,})$|^([A-Z]{1}[a-z]{1,}\040[A-Z]{1}[a-z]{1,})$|^([A-Z]{1}[a-z]{1,}\040[A-Z]{1}[a-z]{1,}\040[A-Z]{1}[a-z]{1,})$|^$
-(^|\s)(00[1-9]|0[1-9]0|0[1-9][1-9]|[1-6]\d{2}|7[0-6]\d|77[0-2])(-?|[\. ])([1-9]0|0[1-9]|[1-9][1-9])\3(\d{3}[1-9]|[1-9]\d{3}|\d[1-9]\d{2}|\d{2}[1-9]\d)($|\s|[;:,!\.\?])
-&amp;lt;[^&amp;gt;]+&amp;gt;
+(w+)s+1
+^(d{4}[- ]){3}d{4}|d{16}$
+^((4d{3})|(5[1-5]d{2})|(6011))-?d{4}-?d{4}-?d{4}|3[4,7]d{13}$
+^s*[a-zA-Z,s]+s*$
+^d{9}[d|X]$
+^((?:4d{3})|(?:5[1-5]d{2})|(?:6011)|(?:3[68]d{2})|(?:30[012345]d))[ -]?(d{4})[ -]?(d{4})[ -]?(d{4}|3[4,7]d{13})$
+"((\")|[^"(\")])+"
+^([1-zA-Z0-1@.s]{1,255})$
+^([A-Z]{1}[a-z]{1,})$|^([A-Z]{1}[a-z]{1,}040[A-Z]{1}[a-z]{1,})$|^([A-Z]{1}[a-z]{1,}040[A-Z]{1}[a-z]{1,}040[A-Z]{1}[a-z]{1,})$|^$
+(^|s)(00[1-9]|0[1-9]0|0[1-9][1-9]|[1-6]d{2}|7[0-6]d|77[0-2])(-?|[. ])([1-9]0|0[1-9]|[1-9][1-9])3(d{3}[1-9]|[1-9]d{3}|d[1-9]d{2}|d{2}[1-9]d)($|s|[;:,!.?])
+<[^>]+>
 ^[0-9]{1,}(,[0-9]+){0,}$
-^(?!^(PRN|AUX|CLOCK\$|NUL|CON|COM\d|LPT\d|\..*)(\..+)?$)[^\x00-\x1f\\?*&amp;lt;&amp;gt;:\;|\&amp;quot;/]+$
-^([a-z0-9]+([\-a-z0-9]*[a-z0-9]+)?\.){0,}([a-z0-9]+([\-a-z0-9]*[a-z0-9]+)?){1,63}(\.[a-z0-9]{2,7})+$
+^(?!^(PRN|AUX|CLOCK$|NUL|CON|COMd|LPTd|..*)(..+)?$)[^x00-x1f\?*<>:;|"/]+$
+^([a-z0-9]+([-a-z0-9]*[a-z0-9]+)?.){0,}([a-z0-9]+([-a-z0-9]*[a-z0-9]+)?){1,63}(.[a-z0-9]{2,7})+$
 ^(?![0-9]{6})[0-9a-zA-Z]{6}$
-(NOT)?(\s*\(*)\s*(\w+)\s*(=|&amp;lt;&amp;gt;|&amp;lt;|&amp;gt;|LIKE|IN)\s*(\(([^\)]*)\)|&#39;([^&#39;]*)&#39;|(-?\d*\.?\d+))(\s*\)*\s*)(AND|OR)?
-(?s)(?:\e\[(?:(\d+);?)*([A-Za-z])(.*?))(?=\e\[|\z)
-(\b\w+\b)       # Match a word and capture it
-[\\s+,]
+(NOT)?(s*(*)s*(w+)s*(=|<>|<|>|LIKE|IN)s*((([^)]*))|'([^']*)'|(-?d*.?d+))(s*)*s*)(AND|OR)?
+(?s)(?:e[(?:(d+);?)*([A-Za-z])(.*?))(?=e[|z)
+(bw+b) # Match a word and capture it
+[\s+,]
 ^([1-9]{1}[0-9]{3}[,]?)*([1-9]{1}[0-9]{3})$
-^(?=((0[1-9]0)|([1-7][1-7]\d)|(00[1-9])|(0[1-9][1-9]))-(?=(([1-9]0)|(0[1-9])|([1-9][1-9]))-(?=((\d{3}[1-9])$|([1-9]\d{3})$|(\d[1-9]\d{2})$|(\d{2}[1-9]\d)$))))
-(?&lt;FirstName&gt;[A-Z]\.?\w*\-?[A-Z]?\w*)\s?(?&lt;MiddleName&gt;[A-Z]\w*|[A-Z]?\.?)\s?(?&lt;LastName&gt;[A-Z]\w*\-?[A-Z]?\w*)(?:,\s|)(?&lt;Suffix&gt;Jr\.|Sr\.|IV|III|II|)
-(?&lt;FirstName&gt;[A-Z]\.?\w*\-?[A-Z]?\w*)\s?(?&lt;MiddleName&gt;[A-Z]\w+|[A-Z]?\.?)\s(?&lt;LastName&gt;[A-Z]?\w{0,3}[A-Z]\w+\-?[A-Z]?\w*)(?:,\s|)(?&lt;Suffix&gt;Jr\.|Sr\.|IV|III|II|)
-(?&lt;FirstName&gt;[A-Z]\.?\w*\-?[A-Z]?\w*)\s?(?&lt;MiddleName&gt;[A-Z]\w+|[A-Z]?\.?)\s(?&lt;LastName&gt;(?:[A-Z]\w{1,3}|St\.\s)?[A-Z]\w+\-?[A-Z]?\w*)(?:,\s|)(?&lt;Suffix&gt;Jr\.|Sr\.|IV|III|II|)
-(?&lt;LastName&gt;[A-Z]\w+\-?[A-Z]?\w*),\s(?&lt;Suffix&gt;Jr\.|Sr\.|IV|III|II)?,?\s?(?&lt;FirstName&gt;[A-Z]\w*\-?[A-Z]?\w*\.?)\s?(?&lt;MiddleName&gt;[A-Z]?\w*\.?)
-(\d{6}[-\s]?\d{12})|(\d{4}[-\s]?\d{4}[-\s]?\d{4}[-\s]?\d{4})
-(.)\1{2,}
-ISBN\x20(?=.{13}$)\d{1,5}([- ])\d{1,7}\1\d{1,6}\1(\d|X)$
-^((Bob)|(John)|(Mary)).*$(?&lt;!White)
-^([\s\S]){1,20}([\s\.])
-(\w(\s)?)+
+^(?=((0[1-9]0)|([1-7][1-7]d)|(00[1-9])|(0[1-9][1-9]))-(?=(([1-9]0)|(0[1-9])|([1-9][1-9]))-(?=((d{3}[1-9])$|([1-9]d{3})$|(d[1-9]d{2})$|(d{2}[1-9]d)$))))
+(?<FirstName>[A-Z].?w*-?[A-Z]?w*)s?(?<MiddleName>[A-Z]w*|[A-Z]?.?)s?(?<LastName>[A-Z]w*-?[A-Z]?w*)(?:,s|)(?<Suffix>Jr.|Sr.|IV|III|II|)
+(?<FirstName>[A-Z].?w*-?[A-Z]?w*)s?(?<MiddleName>[A-Z]w+|[A-Z]?.?)s(?<LastName>[A-Z]?w{0,3}[A-Z]w+-?[A-Z]?w*)(?:,s|)(?<Suffix>Jr.|Sr.|IV|III|II|)
+(?<FirstName>[A-Z].?w*-?[A-Z]?w*)s?(?<MiddleName>[A-Z]w+|[A-Z]?.?)s(?<LastName>(?:[A-Z]w{1,3}|St.s)?[A-Z]w+-?[A-Z]?w*)(?:,s|)(?<Suffix>Jr.|Sr.|IV|III|II|)
+(?<LastName>[A-Z]w+-?[A-Z]?w*),s(?<Suffix>Jr.|Sr.|IV|III|II)?,?s?(?<FirstName>[A-Z]w*-?[A-Z]?w*.?)s?(?<MiddleName>[A-Z]?w*.?)
+(d{6}[-s]?d{12})|(d{4}[-s]?d{4}[-s]?d{4}[-s]?d{4})
+(.)1{2,}
+ISBNx20(?=.{13}$)d{1,5}([- ])d{1,7}1d{1,6}1(d|X)$
+^((Bob)|(John)|(Mary)).*$(?<!White)
+^([sS]){1,20}([s.])
+(w(s)?)+
 regex
-^(?n:(?&lt;lastname&gt;(St\.\ )?(?-i:[A-Z]\&#39;?\w+?\-?)+)(?&lt;suffix&gt;\ (?i:([JS]R)|((X(X{1,2})?)?((I((I{1,2})|V|X)?)|(V(I{0,3})))?)))?,((?&lt;prefix&gt;Dr|Prof|M(r?|(is)?)s)\ )?(?&lt;firstname&gt;(?-i:[A-Z]\&#39;?(\w+?|\.)\ ??){1,2})?(\ (?&lt;mname&gt;(?-i:[A-Z])(\&#39;?\w+?|\.))){0,2})$
-^ISBN\s(?=[-0-9xX ]{13}$)(?:[0-9]+[- ]){3}[0-9]*[xX0-9]$
-.*[\$Ss]pecia[l1]\W[Oo0]ffer.*
+^(?n:(?<lastname>(St. )?(?-i:[A-Z]'?w+?-?)+)(?<suffix> (?i:([JS]R)|((X(X{1,2})?)?((I((I{1,2})|V|X)?)|(V(I{0,3})))?)))?,((?<prefix>Dr|Prof|M(r?|(is)?)s) )?(?<firstname>(?-i:[A-Z]'?(w+?|.) ??){1,2})?( (?<mname>(?-i:[A-Z])('?w+?|.))){0,2})$
+^ISBNs(?=[-0-9xX ]{13}$)(?:[0-9]+[- ]){3}[0-9]*[xX0-9]$
+.*[$Ss]pecia[l1]W[Oo0]ffer.*
 .*[Vv][Ii1]agr.*
 .*[Oo0][Ee][Mm].*
-.*\$AVE|\$ave.*
-.*[Pp]re[Ss\$]cr[iI1]pt.*
-.*[Pp]en[Ii1][\$s].*
-^\d{3}\s?\d{3}\s?\d{3}$
+.*$AVE|$ave.*
+.*[Pp]re[Ss$]cr[iI1]pt.*
+.*[Pp]en[Ii1][$s].*
+^d{3}s?d{3}s?d{3}$
 (?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{6,15})$
-^(([a-h,A-H,j-n,J-N,p-z,P-Z,0-9]{9})([a-h,A-H,j-n,J-N,p,P,r-t,R-T,v-z,V-Z,0-9])([a-h,A-H,j-n,J-N,p-z,P-Z,0-9])(\d{6}))$
-^[a-zA-Z]+(([\&#39;\,\.\-][a-zA-Z])?[a-zA-Z]*)*$
+^(([a-h,A-H,j-n,J-N,p-z,P-Z,0-9]{9})([a-h,A-H,j-n,J-N,p,P,r-t,R-T,v-z,V-Z,0-9])([a-h,A-H,j-n,J-N,p-z,P-Z,0-9])(d{6}))$
+^[a-zA-Z]+(([',.-][a-zA-Z])?[a-zA-Z]*)*$
 ^[A-CEGHJ-PR-TW-Z]{1}[A-CEGHJ-NPR-TW-Z]{1}[0-9]{6}[A-DFM]{0,1}$
-^(\d{4}-){3}\d{4}$|^(\d{4} ){3}\d{4}$|^\d{16}$
-^(?!000)([0-6]\d{2}|7([0-6]\d|7[012]))([ -]?)(?!00)\d\d\3(?!0000)\d{4}$
-^(?&lt;field1&gt;[^,]+),(?&lt;field2&gt;[^,]+),(?&lt;field3&gt;[^,]+)$
-^(?!000)(?!666)(?&lt;SSN3&gt;[0-6]\d{2}|7(?:[0-6]\d|7[012]))([- ]?)(?!00)(?&lt;SSN2&gt;\d\d)\1(?!0000)(?&lt;SSN4&gt;\d{4})$
-^(?:(?&lt;Visa&gt;4\d{3})|(?&lt;Mastercard&gt;5[1-5]\d{2})|(?&lt;Discover&gt;6011)|(?&lt;DinersClub&gt;(?:3[68]\d{2})|(?:30[0-5]\d))|(?&lt;AmericanExpress&gt;3[47]\d{2}))([ -]?)(?(DinersClub)(?:\d{6}\1\d{4})|(?(AmericanExpress)(?:\d{6}\1\d{5})|(?:\d{4}\1\d{4}\1\d{4})))$
-(?n:(^(?(?![^,]+?,)((?&lt;first&gt;[A-Z][a-z]*?) )?((?&lt;second&gt;[A-Z][a-z]*?) )?((?&lt;third&gt;[A-Z][a-z]*?) )?)(?&lt;last&gt;[A-Z]((&#39;|[a-z]{1,2})[A-Z])?[a-z]+))(?(?=,)(, (?&lt;first&gt;[A-Z][a-z]*?))?( (?&lt;second&gt;[A-Z][a-z]*?))?( (?&lt;third&gt;[A-Z][a-z]*?))?)$)
-(&amp;#192;|&amp;#193;|&amp;#194;|&amp;#195;|&amp;#196;|&amp;#197;|&amp;#224;|&amp;#225;|&amp;#226;|&amp;#227;|&amp;#228;|&amp;#229;|&amp;amp;#097;|&amp;amp;#065;|&amp;amp;#064;|&amp;amp;commat;|&amp;amp;alpha;|&amp;amp;#192;|&amp;amp;#193;|&amp;amp;#194;|&amp;amp;#195;|&amp;amp;#196;|&amp;amp;#197;|&amp;amp;Agrave;|&amp;amp;Aacute;|&amp;amp;Acirc;|&amp;amp;Atilde;|&amp;amp;Auml;|&amp;amp;Aring;|&amp;amp;#224;|&amp;amp;#225;|&amp;amp;#226;|&amp;amp;#227;|&amp;amp;#228;|&amp;amp;#229;|&amp;amp;agrave;|&amp;amp;aacute;|&amp;amp;acirc;|&amp;amp;atilde;|&amp;amp;auml;|&amp;amp;aring;)
-(&amp;#200;|&amp;#201;|&amp;#202;|&amp;#203;|&amp;#232;|&amp;#233;|&amp;#234;|&amp;#235;|&amp;amp;#069;|&amp;amp;#101;|&amp;amp;#200;|&amp;amp;#201;|&amp;amp;#202;|&amp;amp;#203;|&amp;amp;Egrave;|&amp;amp;Eacute;|&amp;amp;Ecirc;|&amp;amp;Euml;|&amp;amp;#232;|&amp;amp;#233;|&amp;amp;#234;|&amp;amp;#235;|&amp;amp;egrave;|&amp;amp;eacute;|&amp;amp;ecirc;|&amp;amp;euml;)
-(&amp;#161;|&amp;#204;|&amp;#205;|&amp;#206;|&amp;#207;|&amp;#236;|&amp;#237;|&amp;#238;|&amp;#239;|&amp;amp;#033;|&amp;amp;#161;|&amp;amp;iexcl;|&amp;amp;#185;|&amp;amp;sup1;|&amp;amp;brvbar;|&amp;amp;Igrave;|&amp;amp;Iacute;|&amp;amp;Icirc;|&amp;amp;Iuml;|&amp;amp;igrave;|&amp;amp;iacute;|&amp;amp;iuml;|&amp;amp;#204;|&amp;amp;#205;|&amp;amp;#206;|&amp;amp;#207;|&amp;amp;#236;|&amp;amp;#237;|&amp;amp;#238;|&amp;amp;#239;|&amp;amp;#073;|&amp;amp;#105;)
-(&amp;#210;|&amp;#211;|&amp;#212;|&amp;#213;|&amp;#214;|&amp;#216;|&amp;#240;|&amp;#242;|&amp;#243;|&amp;#244;|&amp;#245;|&amp;#246;|&amp;#248;|&amp;amp;#048;|&amp;amp;#079;|&amp;amp;#111;|&amp;amp;#210;|&amp;amp;#211;|&amp;amp;#212;|&amp;amp;#213;|&amp;amp;#214;|&amp;amp;#216;|&amp;amp;Ograve;|&amp;amp;Oacute;|&amp;amp;Ocirc;|&amp;amp;Otilde;|&amp;amp;Ouml;|&amp;amp;Oslash;|&amp;amp;#242;|&amp;amp;#243;|&amp;amp;#244;|&amp;amp;#245;|&amp;amp;ograve;|&amp;amp;oacute;|&amp;amp;ocirc;|&amp;amp;otilde;|&amp;amp;ouml;|&amp;amp;oslash;)
-(&amp;#217;|&amp;#218;|&amp;#219;|&amp;#220;|&amp;#249;|&amp;#250;|&amp;#251;|&amp;#252;|&amp;#181;|&amp;amp;#085;|&amp;amp;#117;|&amp;amp;#181;|&amp;amp;micro;|&amp;amp;#217;|&amp;amp;#218;|&amp;amp;#219;|&amp;amp;#220;|&amp;amp;Ugrave;|&amp;amp;Uacute;|&amp;amp;Ucirc;|&amp;amp;Uuml;|&amp;amp;#249;|&amp;amp;#250;|&amp;amp;#251;&amp;amp;#252;|&amp;amp;ugrave;|&amp;amp;uacute;|&amp;amp;ucirc;|&amp;amp;uuml;)
-.\{\d\}
-^(?=[^\d_].*?\d)\w(\w|[!@#$%]){7,20}
-^([A-HK-PRSVWY][A-HJ-PR-Y])\s?([0][2-9]|[1-9][0-9])\s?[A-HJ-PR-Z]{3}$
-^([A-Z]{3}\s?(\d{3}|\d{2}|d{1})\s?[A-Z])|([A-Z]\s?(\d{3}|\d{2}|\d{1})\s?[A-Z]{3})$
-^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,15}$
-^([A-Z]{3}\s?(\d{3}|\d{2}|d{1})\s?[A-Z])|([A-Z]\s?(\d{3}|\d{2}|\d{1})\s?[A-Z]{3})|(([A-HK-PRSVWY][A-HJ-PR-Y])\s?([0][2-9]|[1-9][0-9])\s?[A-HJ-PR-Z]{3})$
-^([A-Za-z0-9]\s?)+([,]\s?([A-Za-z0-9]\s?)+)*$
-[v,V,(\\/)](\W|)[i,I,1,l,L](\W|)[a,A,@,(\/\\)](\W|)[g,G](\W|)[r,R](\W|)[a,A,@,(\/\\))]
-^[{|\(]?[0-9a-fA-F]{8}[-]?([0-9a-fA-F]{4}[-]?){3}[0-9a-fA-F]{12}[\)|}]?$
-(\S*)+(\u007C)+(\S*)
+^(d{4}-){3}d{4}$|^(d{4} ){3}d{4}$|^d{16}$
+^(?!000)([0-6]d{2}|7([0-6]d|7[012]))([ -]?)(?!00)dd3(?!0000)d{4}$
+^(?<field1>[^,]+),(?<field2>[^,]+),(?<field3>[^,]+)$
+^(?!000)(?!666)(?<SSN3>[0-6]d{2}|7(?:[0-6]d|7[012]))([- ]?)(?!00)(?<SSN2>dd)1(?!0000)(?<SSN4>d{4})$
+^(?:(?<Visa>4d{3})|(?<Mastercard>5[1-5]d{2})|(?<Discover>6011)|(?<DinersClub>(?:3[68]d{2})|(?:30[0-5]d))|(?<AmericanExpress>3[47]d{2}))([ -]?)(?(DinersClub)(?:d{6}1d{4})|(?(AmericanExpress)(?:d{6}1d{5})|(?:d{4}1d{4}1d{4})))$
+(?n:(^(?(?![^,]+?,)((?<first>[A-Z][a-z]*?) )?((?<second>[A-Z][a-z]*?) )?((?<third>[A-Z][a-z]*?) )?)(?<last>[A-Z](('|[a-z]{1,2})[A-Z])?[a-z]+))(?(?=,)(, (?<first>[A-Z][a-z]*?))?( (?<second>[A-Z][a-z]*?))?( (?<third>[A-Z][a-z]*?))?)$)
+.{d}
+^(?=[^d_].*?d)w(w|[!@#$%]){7,20}
+^([A-HK-PRSVWY][A-HJ-PR-Y])s?([0][2-9]|[1-9][0-9])s?[A-HJ-PR-Z]{3}$
+^([A-Z]{3}s?(d{3}|d{2}|d{1})s?[A-Z])|([A-Z]s?(d{3}|d{2}|d{1})s?[A-Z]{3})$
+^(?=.*d)(?=.*[a-z])(?=.*[A-Z]).{8,15}$
+^([A-Z]{3}s?(d{3}|d{2}|d{1})s?[A-Z])|([A-Z]s?(d{3}|d{2}|d{1})s?[A-Z]{3})|(([A-HK-PRSVWY][A-HJ-PR-Y])s?([0][2-9]|[1-9][0-9])s?[A-HJ-PR-Z]{3})$
+^([A-Za-z0-9]s?)+([,]s?([A-Za-z0-9]s?)+)*$
+[v,V,(\/)](W|)[i,I,1,l,L](W|)[a,A,@,(/\)](W|)[g,G](W|)[r,R](W|)[a,A,@,(/\))]
+^[{|(]?[0-9a-fA-F]{8}[-]?([0-9a-fA-F]{4}[-]?){3}[0-9a-fA-F]{12}[)|}]?$
+(S*)+(u007C)+(S*)
 ^([4]{1})([0-9]{12,15})$
 ^([51|52|53|54|55]{2})([0-9]{14})$
 ^([34|37]{2})([0-9]{13})$
 ^([6011]{4})([0-9]{12})$
 ^([30|36|38]{2})([0-9]{12})$
-([^\.\?\!]*)[\.\?\!]
-(\S+)\x20{2,}(?=\S+)
-^(?:[ -~]{10,25}(?:$|(?:[\w!?.])\s))
-(script)|(&amp;lt;)|(&amp;gt;)|(%3c)|(%3e)|(SELECT) |(UPDATE) |(INSERT) |(DELETE)|(GRANT) |(REVOKE)|(UNION)|(&amp;amp;lt;)|(&amp;amp;gt;)
+([^.?!]*)[.?!]
+(S+)x20{2,}(?=S+)
+^(?:[ -~]{10,25}(?:$|(?:[w!?.])s))
+(script)|(<)|(>)|(%3c)|(%3e)|(SELECT) |(UPDATE) |(INSERT) |(DELETE)|(GRANT) |(REVOKE)|(UNION)|(<)|(>)
 ^([0-9a-fA-F]){8}$
-^[\.\w&amp;#230;&amp;#248;&amp;#229;-]+@([a-z&amp;#230;&amp;#248;&amp;#229;0-9]+([\.-]{0,1}[a-z&amp;#230;&amp;#248;&amp;#229;0-9]+|[a-z&amp;#230;&amp;#248;&amp;#229;0-9]?))+\.[a-z]{2,6}$
-^\.([rR]([aA][rR]|\d{2})|(\d{3})?)$
-(\b)(\w+(\b|\n|\s)){3}
+^.([rR]([aA][rR]|d{2})|(d{3})?)$
+(b)(w+(b|n|s)){3}
 ^[a-zA-Z0-9]+$
 (?i)(pharmacy)|((p(.{1,3})?h(.{1,3})?a(.{1,3})?r(.{1,3)?m(.{1,3})?a(.{1,3})?c(.{1,3})?y))
-\w{5,255}
+w{5,255}
 [AaEeIiOoUuYy]
 ^([1-9]{1}(([0-9])?){2})+(,[0-9]{1}[0-9]{2})*$
-&quot;[^&quot;\r\n]*&quot;
-^([A-Z|a-z|&amp;amp;]{3}\d{2}((0[1-9]|1[012])(0[1-9]|1\d|2[0-8])|(0[13456789]|1[012])(29|30)|(0[13578]|1[02])31)|([02468][048]|[13579][26])0229)(\w{2})([A|a|0-9]{1})$|^([A-Z|a-z]{4}\d{2}((0[1-9]|1[012])(0[1-9]|1\d|2[0-8])|(0[13456789]|1[012])(29|30)|(0[13578]|1[02])31)|([02468][048]|[13579][26])0229)((\w{2})([A|a|0-9]{1})){0,3}$
-^(?=.*\d)(?=.*[a-zA-Z])(?!.*[\W_\x7B-\xFF]).{6,15}$
-^((A[ABEHKLMPRSTWXYZ])|(B[ABEHKLMT])|(C[ABEHKLR])|(E[ABEHKLMPRSTWXYZ])|(GY)|(H[ABEHKLMPRSTWXYZ])|(J[ABCEGHJKLMNPRSTWXYZ])|(K[ABEHKLMPRSTWXYZ])|(L[ABEHKLMPRSTWXYZ])|(M[AWX])|(N[ABEHLMPRSWXYZ])|(O[ABEHKLMPRSX])|(P[ABCEGHJLMNPRSTWXY])|(R[ABEHKMPRSTWXYZ])|(S[ABCGHJKLMNPRSTWXYZ])|(T[ABEHKLMPRSTWXYZ])|(W[ABEKLMP])|(Y[ABEHKLMPRSTWXYZ])|(Z[ABEHKLMPRSTWXY]))\d{6}([A-D]|\s)$
+"[^"rn]*"
+^([A-Z|a-z|]{3}d{2}((0[1-9]|1[012])(0[1-9]|1d|2[0-8])|(0[13456789]|1[012])(29|30)|(0[13578]|1[02])31)|([02468][048]|[13579][26])0229)(w{2})([A|a|0-9]{1})$|^([A-Z|a-z]{4}d{2}((0[1-9]|1[012])(0[1-9]|1d|2[0-8])|(0[13456789]|1[012])(29|30)|(0[13578]|1[02])31)|([02468][048]|[13579][26])0229)((w{2})([A|a|0-9]{1})){0,3}$
+^(?=.*d)(?=.*[a-zA-Z])(?!.*[W_x7B-xFF]).{6,15}$
+^((A[ABEHKLMPRSTWXYZ])|(B[ABEHKLMT])|(C[ABEHKLR])|(E[ABEHKLMPRSTWXYZ])|(GY)|(H[ABEHKLMPRSTWXYZ])|(J[ABCEGHJKLMNPRSTWXYZ])|(K[ABEHKLMPRSTWXYZ])|(L[ABEHKLMPRSTWXYZ])|(M[AWX])|(N[ABEHLMPRSWXYZ])|(O[ABEHKLMPRSX])|(P[ABCEGHJLMNPRSTWXY])|(R[ABEHKMPRSTWXYZ])|(S[ABCGHJKLMNPRSTWXYZ])|(T[ABEHKLMPRSTWXYZ])|(W[ABEKLMP])|(Y[ABEHKLMPRSTWXYZ])|(Z[ABEHKLMPRSTWXY]))d{6}([A-D]|s)$
