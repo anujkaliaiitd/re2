@@ -3,34 +3,49 @@
 // license that can be found in the LICENSE file.
 
 #include <stdint.h>
-#include <string>
 #include <fstream>
+#include <string>
 
 #include "re2/prog.h"
 #include "re2/re2.h"
 #include "re2/regexp.h"
 
-static constexpr bool kVerbose = false;
+static constexpr bool kVerbose = true;
 
-size_t get_num_states(std::string regex) {
+int get_num_states(std::string regex, size_t &dfa_states, size_t &nfa_states) {
   re2::Regexp *re = re2::Regexp::Parse(regex, re2::Regexp::LikePerl, NULL);
   if (re == nullptr) {
     if (kVerbose) printf("failed to parse regex %s\n", regex.c_str());
-    return 0;
+    return -1;
   }
   re2::Prog *prog = re->CompileToProg(0);
   if (prog == nullptr) {
     if (kVerbose) printf("failed to compile regex %s\n", regex.c_str());
-    return 0;
+    return -1;
   }
 
-  return prog->BuildEntireDFA(re2::Prog::kFirstMatch, nullptr);
+  dfa_states = prog->BuildEntireDFA(re2::Prog::kFirstMatch, nullptr);
+  nfa_states = prog->inst_count(re2::InstOp::kInstByteRange);
+  printf("program =\n%s\n", prog->Dump().c_str());
+
+  return 0;
+}
+
+void basic_test() {
+  size_t dfa_states = 0, nfa_states = 0;
+
+  get_num_states("a", dfa_states, nfa_states);
+  assert(dfa_states == 3);
+
+  get_num_states("ab", dfa_states, nfa_states);
+  assert(dfa_states == 4);
+
+  get_num_states("(a|b)*abb(a|b)*", dfa_states, nfa_states);
+  assert(dfa_states == 10);
 }
 
 int main() {
-  assert(get_num_states("a") == 3);
-  assert(get_num_states("ab") == 4);
-  assert(get_num_states("(a|b)*abb(a|b)*") == 10);
+  basic_test();
 
   std::ifstream in("akalia/dataset.txt");
 
@@ -41,9 +56,13 @@ int main() {
     std::getline(in, s);
     if (s.empty()) break;
 
-    size_t num_states = get_num_states(s);
-    if (num_states == 0) continue;
+    s = s.substr(0, s.length() - 1);
 
-    printf("states %zu, regex %s, \n", get_num_states(s), s.c_str());
+    size_t dfa_states = 0, nfa_states = 0;
+    int ret = get_num_states(s, dfa_states, nfa_states);
+    if (ret == -1) continue;
+
+    printf("dfa %zu, nfa %zu, regex %s\n\n\n", dfa_states, nfa_states,
+           s.c_str());
   }
 }
