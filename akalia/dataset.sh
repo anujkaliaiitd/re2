@@ -63,6 +63,11 @@ for file in $filenames; do
   # Some HTML sequences require multiple calls to recode.
   # Example: &amp;lt -> &lt -> <
   # Just run it a bunch of times
+  #while read line; do
+  #  echo "Recoding $line"
+  #  echo $line | recode html..ascii
+  #done < $file
+
   #recode html..ascii $file
   #recode html..ascii $file
   #recode html..ascii $file
