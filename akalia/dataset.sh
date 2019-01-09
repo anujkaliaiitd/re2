@@ -53,4 +53,14 @@ done < dataset.txt
 mv dataset_decoded dataset.txt
 rm tmpfile
 
-
+# Delete scams
+sed -ie '/Amazon/Id' dataset.txt
+sed -ie '/Apple/Id' dataset.txt
+sed -ie '/Facebook/Id' dataset.txt
+sed -ie '/Quick/Id' dataset.txt
+sed -ie '/Bangalore/Id' dataset.txt
+sed -ie '/Gmail/Id' dataset.txt
+sed -ie '/Outlook/Id' dataset.txt
+sed -ie '/Norton/Id' dataset.txt
+sed -ie '/Tech/Id' dataset.txt
+sed -ie '/Service/Id' dataset.txt
