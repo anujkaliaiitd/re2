@@ -38,6 +38,10 @@ int main() {
   while (true) {
     std::getline(in, s);
     if (s.empty()) break;
-    printf("regex %s, states %zu\n", s.c_str(), get_num_states(s));
+
+    size_t num_states = get_num_states(s);
+    if (num_states == 0) continue;
+
+    printf("states %zu, regex %s, \n", get_num_states(s), s.c_str());
   }
 }
