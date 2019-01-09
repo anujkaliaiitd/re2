@@ -10,15 +10,17 @@
 #include "re2/re2.h"
 #include "re2/regexp.h"
 
+static constexpr bool kVerbose = false;
+
 size_t get_num_states(std::string regex) {
   re2::Regexp *re = re2::Regexp::Parse(regex, re2::Regexp::LikePerl, NULL);
   if (re == nullptr) {
-    printf("failed to parse regex %s\n", regex.c_str());
+    if (kVerbose) printf("failed to parse regex %s\n", regex.c_str());
     return 0;
   }
   re2::Prog *prog = re->CompileToProg(0);
   if (prog == nullptr) {
-    printf("failed to compile regex %s\n", regex.c_str());
+    if (kVerbose) printf("failed to compile regex %s\n", regex.c_str());
     return 0;
   }
 
